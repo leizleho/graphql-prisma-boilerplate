@@ -1,18 +1,19 @@
-const { GraphQLServer } = require('graphql-yoga');
+import { GraphQLServer, PubSub } from 'graphql-yoga';
+import { prisma } from './generated/prisma-client';
+import * as resolvers from './resolvers';
 
-const typeDefs = `
-type Query {
-  info: String!
-}
-`;
-const resolvers = {
-  Query: {
-    info: () => `This is graphql prisma boilerplate!`
-  }
-};
+const pubsub = new PubSub();
 
 const server = new GraphQLServer({
-  typeDefs,
-  resolvers
+  typeDefs: './src/schema.graphql',
+  resolvers,
+  context: request => ({
+    ...request,
+    pubsub,
+    prisma
+  })
 });
-server.start(() => console.log(`Server is running on http://localhost:4000`));
+
+server.start({ port: process.env.PORT || 4000 }, () => {
+  console.log('The server is up!');
+});

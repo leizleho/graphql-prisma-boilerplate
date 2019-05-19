@@ -3,10 +3,12 @@
 
 <div align="center"><strong>🚀 Bootstrap your GraphQL+Prisma API server to get you started immediately!</strong></div>
 
-
+## Features
+- **GraphQL server:** Fully-featured GraphQL Server using graphql-yoga
+- **Data Access with Prisma:** Out-of-the-box CRUD, filters, pagination & more for graphql resolvers
+- **User CRUD:** registration, login, update and delete user.
 
 ## Requirements
-
 Node - https://nodejs.org/en/download/ <br/>
 Docker<br/>
  └── Docker for Mac - https://docs.docker.com/docker-for-mac/install/ <br/>
@@ -21,7 +23,7 @@ brew install prisma
 ## Clone this repo
 git clone https://github.com/leizleho/graphql-prisma-boilerplate.git
 
-## cd into cloned report
+## cd into cloned repository
 cd graphql-prisma-boilerplate
 
 ## Install all dependencies of the project
@@ -89,3 +91,4 @@ prisma token -e ../.env/dev
 # current directory: graphql-prisma-boilerplate
 yarn start
 ```
+
